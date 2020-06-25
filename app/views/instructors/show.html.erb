@@ -1,0 +1,16 @@
+<h1>Instructor</h1>
+
+<label>Name</label>
+<p><%= @instructor.name %></p>
+
+<% if !@instructor.students.empty? %> 
+    <label>Students</label>
+    <ul>
+        <% @instructor.students_sort_by_name.each do |student| %>
+            <li><%= link_to student.name, student %></li>
+        <% end %>
+    </ul>
+    <p>Average age of students: <%= @instructor.average_student_age %></p>
+<% else %>
+    <p>No students.</p>
+<% end %>
